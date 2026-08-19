@@ -79,6 +79,8 @@ export const authService = {
       localStorage.removeItem('securechat_private_key');
       localStorage.removeItem('securechat_public_key');
       localStorage.removeItem('securechat_key_fingerprint');
+      localStorage.removeItem('securechat_e2ee_pub');
+      localStorage.removeItem('securechat_e2ee_priv');
     }
   },
 
