@@ -20,7 +20,8 @@ export const SocketProvider = ({ children }) => {
     }
 
     const token = localStorage.getItem('securechat_token');
-    const newSocket = io(window.location.origin, {
+    const socketBase = import.meta.env.VITE_SOCKET_URL || (import.meta.env.VITE_API_URL ? import.meta.env.VITE_API_URL.replace(/\/api\/?$/, '') : window.location.origin);
+    const newSocket = io(socketBase, {
       auth: { token },
       transports: ['websocket', 'polling'],
       reconnectionAttempts: 10,
